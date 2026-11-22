@@ -24,7 +24,7 @@ jobs:
       - name: checar o proprio codigo
         run: java -jar target/secret-sentinel.jar --path src/main/java --format none
       - name: guardar JAR
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: secret-sentinel
           path: target/secret-sentinel.jar
