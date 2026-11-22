@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SecretSentinel</title>
+<style>
+  html, body { margin:0; background:#000; color:#00ff66; }
+  body { padding:24px; font:14px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace; }
+  pre { margin:0; white-space:pre-wrap; word-break:break-word; }
+  a { color:#66d9ff; }
+  .cmd { color:#fff; }
+  .crit { color:#ff5c5c; }
+  .high { color:#ffc857; }
+  .med { color:#4dd0e1; }
+  .dim { color:#777; }
+</style>
+</head>
+<body>
+<pre>
+  ____             _   _             _   _   ____  _____ ____  _____
+ / ___|  ___ _ __ | |_(_)_   _____ | | | | / ___|| ____|  _ \| ____|
+ \___ \ / _ \ '_ \| __| \ \ / / _ \| | | | \___ \|  _| | |_) |  _|
+  ___) |  __/ |_) | |_| |\ V /  __/| |_| |  ___) | |___|  _ &lt;| |___
+ |____/ \___| .__/ \__|_| \_/ \___| \___/  |____/|_____|_| \_\_____|
+             |_|
+
+<span class="cmd">root@secretsentinel:~$</span> java -jar secret-sentinel.jar --path demo-repo
+arquivos analisados: 4
+tempo de scan: 46 ms
+
+achados: 11
+<span class="crit">CRITICAL</span> .env:2        [AWS_ACCESS_KEY]    AKIA************8X2A
+<span class="crit">CRITICAL</span> .env:4        [GITHUB_TOKEN]      ghp_************6789
+<span class="high">HIGH</span>     .env:6        [HARDCODED_SECRET]  Su************26
+<span class="crit">CRITICAL</span> Config.java:6 [PRIVATE_KEY]       ----************----
+<span class="med">MEDIUM</span>   deploy.yml:6 [HIGH_ENTROPY]      aB3x************5mN1
+
+criticos: 4 | altos: 5 | medios: 2
+<span class="cmd">root@secretsentinel:~$</span> echo $?
+1
+<span class="cmd">root@secretsentinel:~$</span>
+
+<span class="dim"># scanner de segredos em java 21+, zero dependencias em runtime</span>
+<span class="dim"># uso: mvn clean package &amp;&amp; java -jar target/secret-sentinel.jar --path .</span>
+<span class="dim"># codigos de saida: 0 limpo, 1 segredos, 2 erro</span>
+
+<span class="cmd">root@secretsentinel:~$</span> cat README.md
+<a href="../README.md">README.md</a>
+<a href="../demo-repo/">demo-repo/</a>
+<span class="cmd">root@secretsentinel:~$</span> <span class="dim">_</span>
+</pre>
+</body>
+</html>

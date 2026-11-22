@@ -1,0 +1,10 @@
+target/
+*.class
+*.jar
+!demo-repo/**
+secret-sentinel-report.*
+demo-report.*
+.idea/
+.vscode/
+*.iml
+.DS_Store

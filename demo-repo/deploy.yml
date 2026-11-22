@@ -1,0 +1,7 @@
+app: demo
+region: us-east-1
+deploy:
+  token: ghp_aBcDeFgHiJkLmNoPqRsTuVwXyZ0123456789
+  api_key: "AIzaSyD1a2B3c4D5e6F7g8H9i0J1k2L3m4N5o6P"
+  custom_signing_key: aB3xY7qL2pR9sT4vW8zK5mN1
+  webhook: https://example.com/api/v1/deploy

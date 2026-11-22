@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: compilar e testar
+        run: mvn -B clean package
+      - name: checar o proprio codigo
+        run: java -jar target/secret-sentinel.jar --path src/main/java --format none
+      - name: guardar JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: secret-sentinel
+          path: target/secret-sentinel.jar

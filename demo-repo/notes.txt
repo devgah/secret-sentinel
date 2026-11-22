@@ -1,0 +1,6 @@
+Lembrete: nao commitar credenciais reais neste repositorio.
+URL de exemplo: https://example.com/docs/getting-started
+import java.util.Map;
+caminho: C:/Users/demo/Projetos/secret-sentinel
+token de teste: aB3xY7qL2pR9sT4vW8zK5mN1
+senha antiga: "VelhaSenha!2025"
